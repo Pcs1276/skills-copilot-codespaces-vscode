@@ -1,0 +1,73 @@
+; Godot Engine Project Configuration File
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Olympus: War of the Gods 3D"
+run/main_scene="res://game/main.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[rendering]
+
+renderer/rendering_method="forward_plus"
+textures/vram_compression/import_etc2_astc=true
+textures/default_texture_filter=5
+textures/default_texture_repeat=1
+quality/intended_usage/frame_rate_limit=120
+quality/driver/driver_name="Vulkan"
+anti_aliasing/quality/msaa_3d=2
+reflections/ss_reflections/enabled=true
+reflections/screen_space_reflection/max_steps=128
+reflections/screen_space_reflection/fade_in=0.15
+reflections/screen_space_reflection/fade_out=0.8
+reflections/screen_space_reflection/tolerance=0.2
+ssao/enabled=true
+ssao/half_size=true
+ssao/adaptive_target=0.5
+ssao/blur_passes=2
+ssao/fadeout_from=50.0
+ssao/fadeout_to=300.0
+glow/enabled=true
+glow/levels="3,5"
+glow/intensity=0.8
+glow/strength=1.0
+glow/bloom=0.0
+glow/blend_mode="softlight"
+glow/hdr_threshold=1.0
+glow/hdr_scale=2.0
+glow/hdr_luminance_cap=12.0
+fog/enabled=true
+fog/light_color="@Color(1, 0.960784, 0.901961, 1)"
+fog/light_energy=1.5
+fog/sun_scatter=0.25
+fog/density=0.005
+fog/height=10.0
+fog/height_density=0.05
+volumetric_fog/enabled=true
+volumetric_fog/density=0.01
+volumetric_fog/albedo="@Color(0.9, 0.9, 1, 1)"
+volumetric_fog/emission="@Color(0.1, 0.1, 0.2, 1)"
+volumetric_fog/emission_energy=0.1
+volumetric_fog/anisotropy=0.2
+volumetric_fog/length=64.0
+volumetric_fog/detail_spread=2.0
+volumetric_fog/gi_inject=0.5
+volumetric_fog/temporal_reprojection=true
+subsurface_scattering/quality=2
+environment/defaults/default_clear_color="@Color(0.231373, 0.294118, 0.368627, 1)"

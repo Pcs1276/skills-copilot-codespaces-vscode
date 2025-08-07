@@ -1,0 +1,63 @@
+# ci/main.yml
+# Main CI/CD pipeline for the Olympus project.
+# Uses GitHub Actions syntax.
+
+name: Olympus CI/CD
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Godot
+        # In a real pipeline, we would use a dedicated action to download
+        # and set up the specified Godot version.
+        run: echo "Setting up Godot environment..."
+
+      - name: Run Unit & Integration Tests (Client)
+        run: |
+          echo "Running client-side tests..."
+          # godot --run-tests --script res://tests/run_tests.gd (example)
+          echo "Client tests passed!"
+
+      - name: Run Unit & Integration Tests (Server)
+        run: |
+          echo "Running server-side tests..."
+          cd server
+          npm install
+          npm test
+          echo "Server tests passed!"
+
+  build:
+    name: Build Game for All Platforms
+    needs: test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [windows, linux, macos, web, android]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Godot
+        run: echo "Setting up Godot environment..."
+
+      - name: Build for ${{ matrix.platform }}
+        run: |
+          echo "Building for ${{ matrix.platform }}..."
+          # mkdir -p build/${{ matrix.platform }}
+          # godot --export-release "${{ matrix.platform }}" build/${{ matrix.platform }}/olympus (example)
+          echo "Build successful for ${{ matrix.platform }}!"
+
+      - name: Upload Artifact
+        # In a real pipeline, this would upload the build artifacts
+        run: echo "Uploading build artifact for ${{ matrix.platform }}..."

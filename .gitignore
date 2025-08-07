@@ -1,37 +1,58 @@
-# Compiled source #
-###################
-*.com
-*.class
-*.dll
-*.exe
+# Godot 4+ specific ignores
+.godot/
+.godot/imported/
+.godot/mono/
+.godot/shader_cache/
+
+# General ignores
 *.o
+*.rrev
 *.so
+*.a
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*~
+.#*
 
-# Packages #
-############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
-*.7z
+# Godot-specific asset dump files
+.godot/editor/remotescan.*
+.godot/editor/godot_system_info_*
+
+# Exported binaries
+/export/
+/export_presets.cfg
+*.export/
+*.pck
+*.exe
 *.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
+*.app
+*.apk
+*.aab
 
-# Logs and databases #
-######################
-*.log
-*.sql
-*.sqlite
+# Mono/C#
+.mono/
+/bin/
+/obj/
+*.csproj.user
+*.sln.DotSettings.user
+*.suo
 
-# OS generated files #
-######################
+# User-specific settings
+.editor/
+.vscode/
+.idea/
+
+# Asset files that should be imported
+# If you want to store the imported files in git, comment out the line below.
+*.import
+
+# Logs and cache
+/logs/
+/cache/
+/user_data/
+
+# OS-specific
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
